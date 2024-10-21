@@ -1,30 +1,11 @@
 <template>
   <div class="bottom-charts">
-    <div class="bc-chart-item">
-      <div class="bcci-header">赵钱收费站</div>
-      <dv-active-ring-chart :config="config1" />
-      <Label-Tag :config="labelConfig" />
+    <div class="bc-chart-three-item">
+      <personnel-forecast />
     </div>
-    <dv-decoration-2 class="decoration-1" :reverse="true" style="width:5px;" />
-
+    
     <div class="bc-chart-item">
-      <div class="bcci-header">孙李收费站</div>
-      <dv-active-ring-chart :config="config2" />
-      <Label-Tag :config="labelConfig" />
-    </div>
-
-    <dv-decoration-2 class="decoration-2" :reverse="true" style="width:5px;" />
-
-    <div class="bc-chart-item">
-      <div class="bcci-header">周吴收费站</div>
-      <dv-active-ring-chart :config="config3" />
-      <Label-Tag :config="labelConfig" />
-    </div>
-
-    <dv-decoration-2 class="decoration-3" :reverse="true" style="width:5px;" />
-
-    <div class="bc-chart-item">
-      <div class="bcci-header">郑王收费站</div>
+      <div class="bcci-header">1小时后人员统计</div>
       <dv-active-ring-chart :config="config4" />
       <Label-Tag :config="labelConfig" />
     </div>
@@ -34,103 +15,25 @@
 
 <script>
 import LabelTag from './LabelTag'
+import PersonnelForecast from './PersonnelForecast.vue'
 
 export default {
   name: 'BottomCharts',
   components: {
-    LabelTag
+    LabelTag,
+    PersonnelForecast
   },
   data () {
     return {
-      config1: {
-        data: [
-          {
-            name: '收费站',
-            value: 356
-          },
-          {
-            name: '监控中心',
-            value: 215
-          },
-          {
-            name: '道路外场',
-            value: 90
-          },
-          {
-            name: '其他',
-            value: 317
-          }
-        ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        radius: '65%',
-        activeRadius: '70%'
-      },
-
-      config2: {
-        data: [
-          {
-            name: '收费站',
-            value: 615
-          },
-          {
-            name: '监控中心',
-            value: 322
-          },
-          {
-            name: '道路外场',
-            value: 198
-          },
-          {
-            name: '其他',
-            value: 80
-          }
-        ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        radius: '65%',
-        activeRadius: '70%'
-      },
-
-      config3: {
-        data: [
-          {
-            name: '收费站',
-            value: 452
-          },
-          {
-            name: '监控中心',
-            value: 512
-          },
-          {
-            name: '道路外场',
-            value: 333
-          },
-          {
-            name: '其他',
-            value: 255
-          }
-        ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        radius: '65%',
-        activeRadius: '70%'
-      },
-
       config4: {
         data: [
           {
-            name: '收费站',
+            name: '区域1',
             value: 156
           },
           {
-            name: '监控中心',
+            name: '区域2',
             value: 415
-          },
-          {
-            name: '道路外场',
-            value: 90
-          },
-          {
-            name: '其他',
-            value: 210
           }
         ],
         color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
@@ -139,7 +42,7 @@ export default {
       },
 
       labelConfig: {
-        data: ['收费站', '监控中心', '道路外场', '其他']
+        data: ['区域一', '区域二']
       }
     }
   }
@@ -152,6 +55,13 @@ export default {
   height: 100%;
   display: flex;
   position: relative;
+
+  .bc-chart-three-item{
+    width: 70%;
+    height: 100%;
+    padding-top: 20px;
+    box-sizing: border-box;
+  }
 
   .bc-chart-item {
     width: 25%;

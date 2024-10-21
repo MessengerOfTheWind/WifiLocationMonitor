@@ -2,7 +2,7 @@
   <div class="center-cmp">
     <div class="cc-header">
       <dv-decoration-1 style="width:200px;height:50px;" />
-      <div>机电设备总数</div>
+      <div>人员定位信息</div>
       <dv-decoration-1 style="width:200px;height:50px;" />
     </div>
 

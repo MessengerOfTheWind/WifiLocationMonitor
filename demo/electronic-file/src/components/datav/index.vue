@@ -2,8 +2,8 @@
   <div id="data-view">
     <dv-full-screen-container>
       <div class="main-header">
-        <div class="mh-left">技术支持:<a href="https://github.com/jiaming743/DataV">https://github.com/jiaming743/DataV</a></div>
-        <div class="mh-middle">机电设备电子档案</div>
+        <div class="mh-left"></div>
+        <div class="mh-middle">室内人员定位分布</div>
         <div class="mh-right">
           <dv-border-box-2
             style="width: 120px; height: 50px; line-height: 50px; text-align:center;margin-left:200px;"
@@ -15,11 +15,8 @@
 
       <dv-border-box-1 class="main-container">
         <dv-border-box-3 class="left-chart-container">
-
-          <Left-Chart-1 />
-          <Left-Chart-2 />
-          <Left-Chart-3 />
-
+         <person-distribute-pie />
+         <person-distribute-excel />
         </dv-border-box-3>
 
         <div class="right-main-container">
@@ -33,14 +30,15 @@
             <div class="rmctc-right-container">
               <dv-border-box-3 class="rmctc-chart-1">
 
-                <Right-Chart-1 />
+                <!-- <Right-Chart-1 /> -->
+                <person-density />
 
               </dv-border-box-3>
 
               <dv-border-box-4 class="rmctc-chart-2" :reverse="true">
 
-                <Right-Chart-2 />
-
+                <!-- <Right-Chart-2 /> -->
+                <top-right-cmp />
               </dv-border-box-4>
             </div>
           </div>
@@ -58,27 +56,30 @@
 </template>
 
 <script>
-import LeftChart1 from './LeftChart1'
-import LeftChart2 from './LeftChart2'
-import LeftChart3 from './LeftChart3'
+
+// import LeftChart2 from './LeftChart2'
+// import LeftChart3 from './LeftChart3'
 
 import CenterCmp from './CenterCmp'
-
-import RightChart1 from './RightChart1'
-import RightChart2 from './RightChart2'
-
+import PersonDistributePie from './PersonDistributePie.vue'
+import PersonDistributeExcel from './PersonDistributeExcel.vue'
 import BottomCharts from './BottomCharts'
+import PersonDensity from './PersonDensity.vue'
+import TopRightCmp from './TopRightCmp.vue'
+
+// import LeftChart1_copy from './LeftChart1_copy.vue'
 
 export default {
   name: 'DataView',
   components: {
-    LeftChart1,
-    LeftChart2,
-    LeftChart3,
+    // LeftChart2,
+    // LeftChart3,
     CenterCmp,
-    RightChart1,
-    RightChart2,
-    BottomCharts
+    PersonDistributePie,
+    PersonDistributeExcel,
+    BottomCharts,
+    PersonDensity,
+    TopRightCmp
   },
   data () {
     return {}
@@ -102,7 +103,7 @@ export default {
   }
 
   .main-header {
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -171,5 +172,6 @@ export default {
   .rmctc-chart-1, .rmctc-chart-2 {
     height: 50%;
   }
+
 }
 </style>
