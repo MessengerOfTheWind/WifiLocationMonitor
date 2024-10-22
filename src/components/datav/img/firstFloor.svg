@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1218.67 884.2">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ccc;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #666;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #b3b3b3;
+      }
+
+      .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-5, .cls-6 {
+        stroke: #000;
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-5, .cls-6, .cls-8, .cls-9, .cls-10, .cls-13, .cls-11, .cls-12 {
+        fill: none;
+      }
+
+      .cls-6, .cls-7, .cls-9, .cls-11, .cls-12 {
+        stroke-width: .71px;
+      }
+
+      .cls-7 {
+        fill: #f99;
+      }
+
+      .cls-7, .cls-11 {
+        stroke: #f99;
+      }
+
+      .cls-8 {
+        stroke-width: 2px;
+      }
+
+      .cls-8, .cls-10 {
+        stroke: gray;
+      }
+
+      .cls-9 {
+        stroke: #ff0;
+      }
+
+      .cls-12 {
+        stroke: aqua;
+      }
+    </style>
+  </defs>
+  <g id="LINE">
+    <line class="cls-6" x1="747.2" y1="257.95" x2="750.85" y2="262.61"/>
+  </g>
+  <g id="LINE-2" data-name="LINE">
+    <line class="cls-6" x1="730.87" y1="270.75" x2="747.2" y2="257.95"/>
+  </g>
+  <g id="LWPOLYLINE">
+    <polygon class="cls-6" points="731.66 254.96 733.12 265.22 741.28 258.82 731.66 254.96"/>
+  </g>
+  <g id="HATCH">
+    <rect class="cls-13" x="733.96" y="258.32" width="3.16" height="3.16" transform="translate(-3.65 509.23) rotate(-38.1)"/>
+    <path class="cls-5" d="M733.61,260l.08-.65m.41,1.27l.21-1.75m.27,2.37l.35-2.86m.14,3.48l.48-3.96m.08,3.95l.46-3.81m.16,3.33l.33-2.71m.29,2.23l.19-1.61m.42,1.12l.06-.5"/>
+  </g>
+  <g id="HATCH-2" data-name="HATCH">
+    <polygon class="cls-4" points="750.85 262.61 730.87 270.75 734.52 275.42 750.85 262.61"/>
+  </g>
+  <g id="LINE-3" data-name="LINE">
+    <line class="cls-9" x1="571.02" y1="448.83" x2="582.91" y2="463.99"/>
+  </g>
+  <g id="LINE-4" data-name="LINE">
+    <line class="cls-9" x1="582.91" y1="463.99" x2="588.74" y2="459.42"/>
+  </g>
+  <g id="LINE-5" data-name="LINE">
+    <line class="cls-9" x1="588.74" y1="459.42" x2="575.02" y2="441.92"/>
+  </g>
+  <g id="LINE-6" data-name="LINE">
+    <line class="cls-9" x1="575.02" y1="441.92" x2="561.76" y2="425.01"/>
+  </g>
+  <g id="LINE-7" data-name="LINE">
+    <line class="cls-9" x1="561.76" y1="425.01" x2="555.93" y2="429.58"/>
+  </g>
+  <g id="LINE-8" data-name="LINE">
+    <line class="cls-9" x1="516.04" y1="484.41" x2="567.36" y2="444.16"/>
+  </g>
+  <g id="LINE-9" data-name="LINE">
+    <line class="cls-9" x1="519.69" y1="489.07" x2="571.02" y2="448.83"/>
+  </g>
+  <g id="HATCH-3" data-name="HATCH">
+    <polygon class="cls-1" points="565.43 547.39 516.04 484.41 510.2 488.98 553.19 543.8 545.03 550.2 556 564.2 627.15 508.41 610.69 487.41 604.86 491.99 616.75 507.15 565.43 547.39"/>
+  </g>
+  <g id="LINE-10" data-name="LINE">
+    <line class="cls-11" x1="524.25" y1="397.94" x2="529.34" y2="469.29"/>
+  </g>
+  <g id="LINE-11" data-name="LINE">
+    <line class="cls-7" x1="560.83" y1="444.6" x2="492.76" y2="422.63"/>
+  </g>
+  <g id="LINE-12" data-name="LINE">
+    <line class="cls-9" x1="684.66" y1="355.95" x2="698.38" y2="373.45"/>
+  </g>
+  <g id="LINE-13" data-name="LINE">
+    <line class="cls-9" x1="698.38" y1="373.45" x2="704.21" y2="368.88"/>
+  </g>
+  <g id="LINE-14" data-name="LINE">
+    <line class="cls-9" x1="704.21" y1="368.88" x2="692.32" y2="353.71"/>
+  </g>
+  <g id="LINE-15" data-name="LINE">
+    <line class="cls-9" x1="688.66" y1="349.05" x2="677.23" y2="334.47"/>
+  </g>
+  <g id="LINE-16" data-name="LINE">
+    <line class="cls-9" x1="677.23" y1="334.47" x2="671.4" y2="339.04"/>
+  </g>
+  <g id="LINE-17" data-name="LINE">
+    <line class="cls-9" x1="671.4" y1="339.04" x2="684.66" y2="355.95"/>
+  </g>
+  <g id="LINE-18" data-name="LINE">
+    <line class="cls-9" x1="743.64" y1="313.47" x2="692.32" y2="353.71"/>
+  </g>
+  <g id="LINE-19" data-name="LINE">
+    <line class="cls-9" x1="739.98" y1="308.81" x2="688.66" y2="349.05"/>
+  </g>
+  <g id="LINE-20" data-name="LINE">
+    <line class="cls-12" x1="772.92" y1="260.71" x2="788.13" y2="251.49"/>
+  </g>
+  <g id="ARC">
+    <path class="cls-12" d="M790.19,264.95c1.13-4.58,.38-9.42-2.06-13.46"/>
+  </g>
+  <g id="ARC-2" data-name="ARC">
+    <path class="cls-12" d="M798.25,253.98c-4.03,2.44-6.93,6.39-8.06,10.97"/>
+  </g>
+  <g id="LINE-21" data-name="LINE">
+    <line class="cls-12" x1="807.46" y1="269.19" x2="798.25" y2="253.98"/>
+  </g>
+  <g id="HATCH-4" data-name="HATCH">
+    <rect class="cls-13" x="1161.88" y="122.94" width="3.16" height="3.16" transform="translate(765 1224.68) rotate(-76.2)"/>
+    <path class="cls-5" d="M1164.73,125.98l-.56,.34m.75-1.1l-1.51,.92m1.7-1.68l-2.46,1.49m2.65-2.25l-3.41,2.07m3.06-2.5l-3.29,1.99m2.52-2.18l-2.34,1.41m1.57-1.6l-1.39,.84m.62-1.03l-.43,.26"/>
+  </g>
+  <g>
+    <g id="LINE-22" data-name="LINE">
+      <line class="cls-11" x1="743.69" y1="332.75" x2="748.35" y2="329.09"/>
+    </g>
+    <g id="LINE-23" data-name="LINE">
+      <line class="cls-11" x1="731.28" y1="393.8" x2="734.68" y2="330.86"/>
+    </g>
+    <g id="LINE-24" data-name="LINE">
+      <line class="cls-11" x1="763.94" y1="368.19" x2="702.02" y2="356.47"/>
+    </g>
+    <g id="LINE-25" data-name="LINE">
+      <line class="cls-11" x1="734.68" y1="330.86" x2="763.94" y2="368.19"/>
+    </g>
+    <g id="LINE-26" data-name="LINE">
+      <line class="cls-11" x1="702.02" y1="356.47" x2="734.68" y2="330.86"/>
+    </g>
+    <g id="LINE-27" data-name="LINE">
+      <line class="cls-11" x1="731.28" y1="393.8" x2="702.02" y2="356.47"/>
+    </g>
+    <g id="LINE-28" data-name="LINE">
+      <line class="cls-11" x1="763.94" y1="368.19" x2="731.28" y2="393.8"/>
+    </g>
+    <g id="LINE-29" data-name="LINE">
+      <line class="cls-11" x1="748.35" y1="329.09" x2="768.93" y2="355.33"/>
+    </g>
+    <g id="LINE-30" data-name="LINE">
+      <line class="cls-11" x1="768.93" y1="355.33" x2="764.26" y2="358.99"/>
+    </g>
+    <g>
+      <g id="LINE-31" data-name="LINE">
+        <line class="cls-11" x1="764.26" y1="358.99" x2="743.69" y2="332.75"/>
+      </g>
+      <g id="LWPOLYLINE-2" data-name="LWPOLYLINE">
+        <rect class="cls-11" x="506.79" y="403.97" width="40.02" height="59.29" transform="translate(-155.32 417.44) rotate(-38.1)"/>
+      </g>
+      <g id="LINE-32" data-name="LINE">
+        <line class="cls-11" x1="600.65" y1="496.23" x2="538.72" y2="484.51"/>
+      </g>
+      <g id="LINE-33" data-name="LINE">
+        <line class="cls-11" x1="567.99" y1="521.84" x2="571.38" y2="458.9"/>
+      </g>
+      <g id="LINE-34" data-name="LINE">
+        <line class="cls-11" x1="538.72" y1="484.51" x2="567.99" y2="521.84"/>
+      </g>
+      <g id="LINE-35" data-name="LINE">
+        <line class="cls-11" x1="571.38" y1="458.9" x2="538.72" y2="484.51"/>
+      </g>
+      <g id="LINE-36" data-name="LINE">
+        <line class="cls-11" x1="600.65" y1="496.23" x2="571.38" y2="458.9"/>
+      </g>
+      <g id="LINE-37" data-name="LINE">
+        <line class="cls-11" x1="567.99" y1="521.84" x2="600.65" y2="496.23"/>
+      </g>
+      <g id="LINE-38" data-name="LINE">
+        <line class="cls-11" x1="533.74" y1="497.37" x2="554.31" y2="523.61"/>
+      </g>
+      <g id="LINE-39" data-name="LINE">
+        <line class="cls-11" x1="538.4" y1="493.71" x2="533.74" y2="497.37"/>
+      </g>
+      <g id="LINE-40" data-name="LINE">
+        <line class="cls-11" x1="558.98" y1="519.95" x2="538.4" y2="493.71"/>
+      </g>
+      <g id="LINE-41" data-name="LINE">
+        <line class="cls-11" x1="554.31" y1="523.61" x2="558.98" y2="519.95"/>
+      </g>
+      <g id="LINE-42" data-name="LINE">
+        <line class="cls-11" x1="507.67" y1="464.13" x2="487.09" y2="437.88"/>
+      </g>
+      <g id="LINE-43" data-name="LINE">
+        <line class="cls-11" x1="512.34" y1="460.47" x2="507.67" y2="464.13"/>
+      </g>
+      <g id="LINE-44" data-name="LINE">
+        <line class="cls-11" x1="491.76" y1="434.22" x2="512.34" y2="460.47"/>
+      </g>
+      <g id="LINE-45" data-name="LINE">
+        <line class="cls-11" x1="487.09" y1="437.88" x2="491.76" y2="434.22"/>
+      </g>
+      <g id="LINE-46" data-name="LINE">
+        <line class="cls-11" x1="654.06" y1="296.16" x2="722.13" y2="318.12"/>
+      </g>
+      <g id="LINE-47" data-name="LINE">
+        <line class="cls-11" x1="690.64" y1="342.81" x2="685.55" y2="271.46"/>
+      </g>
+      <g id="LWPOLYLINE-3" data-name="LWPOLYLINE">
+        <rect class="cls-11" x="668.09" y="277.5" width="40.02" height="59.29" transform="translate(-42.91 490.02) rotate(-38.1)"/>
+      </g>
+      <g id="LINE-48" data-name="LINE">
+        <line class="cls-11" x1="722.29" y1="295.84" x2="701.71" y2="269.6"/>
+      </g>
+      <g id="LINE-49" data-name="LINE">
+        <line class="cls-11" x1="717.62" y1="299.5" x2="722.29" y2="295.84"/>
+      </g>
+      <g id="LINE-50" data-name="LINE">
+        <line class="cls-11" x1="697.04" y1="273.26" x2="717.62" y2="299.5"/>
+      </g>
+      <g id="LINE-51" data-name="LINE">
+        <line class="cls-11" x1="701.71" y1="269.6" x2="697.04" y2="273.26"/>
+      </g>
+    </g>
+  </g>
+  <g id="LINE-52" data-name="LINE">
+    <line class="cls-12" x1="773.62" y1="260.83" x2="808.17" y2="269.31"/>
+  </g>
+  <g id="LINE-53" data-name="LINE">
+    <line class="cls-12" x1="772.21" y1="263.58" x2="806.75" y2="272.07"/>
+  </g>
+  <g id="LINE-54" data-name="LINE">
+    <line class="cls-12" x1="461.99" y1="544.98" x2="449.47" y2="532.35"/>
+  </g>
+  <g id="ARC-3" data-name="ARC">
+    <path class="cls-12" d="M462.07,527.2c-4.72-.02-9.25,1.83-12.6,5.16"/>
+  </g>
+  <g id="ARC-4" data-name="ARC">
+    <path class="cls-12" d="M449.51,521.93c3.32,3.35,7.84,5.24,12.55,5.26"/>
+  </g>
+  <g id="LINE-55" data-name="LINE">
+    <line class="cls-12" x1="462.14" y1="509.41" x2="449.51" y2="521.93"/>
+  </g>
+  <g id="LINE-56" data-name="LINE">
+    <line class="cls-12" x1="463.03" y1="544.97" x2="463.18" y2="509.4"/>
+  </g>
+  <g id="LINE-57" data-name="LINE">
+    <line class="cls-12" x1="464.95" y1="545" x2="465.11" y2="509.42"/>
+  </g>
+  <g id="LINE-58" data-name="LINE">
+    <line class="cls-6" x1="462.44" y1="468.41" x2="468.37" y2="468.34"/>
+  </g>
+  <g id="LINE-59" data-name="LINE">
+    <line class="cls-6" x1="462.68" y1="489.16" x2="462.44" y2="468.41"/>
+  </g>
+  <g id="LWPOLYLINE-4" data-name="LWPOLYLINE">
+    <polygon class="cls-6" points="450.62 478.92 459.65 484 459.53 473.64 450.62 478.92"/>
+  </g>
+  <g id="HATCH-5" data-name="HATCH">
+    <polygon class="cls-4" points="468.37 468.34 462.68 489.16 468.61 489.09 468.37 468.34"/>
+  </g>
+  <line class="cls-8" x1="736.08" y1="1.82" x2="983.42" y2="63.29"/>
+  <g id="LINE-60" data-name="LINE">
+    <line class="cls-10" x1="888.45" y1="726.9" x2="924.92" y2="731.31"/>
+  </g>
+  <g id="LINE-61" data-name="LINE">
+    <line class="cls-10" x1="885.04" y1="729.57" x2="880.63" y2="766.04"/>
+  </g>
+  <g id="LINE-62" data-name="LINE">
+    <line class="cls-10" x1="845.89" y1="721.75" x2="882.37" y2="726.16"/>
+  </g>
+  <g id="LINE-63" data-name="LINE">
+    <line class="cls-10" x1="890.19" y1="687.01" x2="885.78" y2="723.49"/>
+  </g>
+  <g id="ARC-5" data-name="ARC">
+    <path class="cls-10" d="M848.48,711.68c-8.2,20.4,1.69,43.58,22.08,51.78,6.48,2.61,13.54,3.46,20.45,2.48"/>
+  </g>
+  <g id="ARC-6" data-name="ARC">
+    <path class="cls-10" d="M922.34,741.37c8.2-20.4-1.69-43.58-22.08-51.78-6.48-2.61-13.54-3.46-20.45-2.48"/>
+  </g>
+  <g id="LINE-64" data-name="LINE">
+    <line class="cls-10" x1="961.34" y1="666.99" x2="977.39" y2="687.46"/>
+  </g>
+  <g id="ARC-7" data-name="ARC">
+    <path class="cls-10" d="M941.39,682.63c8.7,11.1,24.67,13.24,35.99,4.82"/>
+  </g>
+  <g id="ARC-8" data-name="ARC">
+    <path class="cls-10" d="M937.49,718.73c10.87-8.99,12.6-25,3.9-36.1"/>
+  </g>
+  <g id="LINE-65" data-name="LINE">
+    <line class="cls-10" x1="920.4" y1="699.09" x2="936.45" y2="719.56"/>
+  </g>
+  <g>
+    <g id="LINE-66" data-name="LINE">
+      <line class="cls-10" x1="809.48" y1="786.07" x2="825.53" y2="806.54"/>
+    </g>
+    <g>
+      <g id="LINE-67" data-name="LINE">
+        <line class="cls-10" x1="851" y1="753.97" x2="866.47" y2="773.69"/>
+      </g>
+      <g id="ARC-9" data-name="ARC">
+        <path class="cls-10" d="M830.77,769.83c8.39,10.7,6.72,26.13-3.76,34.78"/>
+      </g>
+      <g id="ARC-10" data-name="ARC">
+        <path class="cls-10" d="M865.45,774.47c-10.91,8.11-26.29,6.05-34.68-4.65"/>
+      </g>
+    </g>
+  </g>
+  <g id="ATTRIB">
+    <text/>
+  </g>
+  <g id="ARC-11" data-name="ARC">
+    <path class="cls-10" d="M1006.43,64.97c2.8-11.42,14.2-18.52,25.68-16.01l-5.11,26.65"/>
+  </g>
+  <g id="ARC-12" data-name="ARC">
+    <path class="cls-10" d="M991.09,38.88c11.34,3.1,18.15,14.67,15.34,26.08"/>
+  </g>
+  <g id="LINE-68" data-name="LINE">
+    <line class="cls-10" x1="984.84" y1="59.66" x2="990.01" y2="38.61"/>
+  </g>
+  <g>
+    <path class="cls-10" d="M329.74,396.23c0-12.81,10.21-23.29,23.02-23.62l2.24,23.62"/>
+    <g id="ARC-13" data-name="ARC">
+      <path class="cls-10" d="M305.49,372.05c13.49,.35,24.25,11.38,24.25,24.88"/>
+    </g>
+  </g>
+  <polyline class="cls-8" points="732.76 1 670 258.61 492.24 399.02 355 399.61"/>
+  <line class="cls-8" x1="964.31" y1="665.46" x2="1089.84" y2="573.17"/>
+  <line class="cls-8" x1="1199.75" y1="125.67" x2="1090" y2="570.61"/>
+  <line class="cls-8" x1="1029.74" y1="77.13" x2="1194.35" y2="122.11"/>
+  <g>
+    <path class="cls-10" d="M281.24,396.23c0-12.81-10.21-23.29-23.02-23.62l-2.24,23.62"/>
+    <g id="ARC-14" data-name="ARC">
+      <path class="cls-10" d="M305.49,372.05c-13.49,.35-24.25,11.38-24.25,24.88"/>
+    </g>
+  </g>
+  <polyline class="cls-8" points="1 879.61 2.29 396.61 250 400.07"/>
+  <path class="cls-8" d="M673,879.61H1s672,0,672,0Z"/>
+  <line class="cls-8" x1="673" y1="879.61" x2="808" y2="786.07"/>
+  <g>
+    <polygon class="cls-2" points="1184.18 114.52 1040.23 79.16 1038.11 87.8 1182.06 123.15 1180.99 127.47 1198.27 131.72 1218.07 51.11 1209.43 48.99 1193.87 112.32 1185.24 110.2 1184.18 114.52"/>
+    <g id="HATCH-6" data-name="HATCH">
+      <rect class="cls-3" x="746.6" y="795.38" width="23.72" height="23.72" transform="translate(-336.49 639.99) rotate(-38.1)"/>
+    </g>
+    <g id="HATCH-7" data-name="HATCH">
+      <rect class="cls-3" x="994.21" y="610.63" width="23.72" height="23.72" transform="translate(-169.74 753.41) rotate(-38.1)"/>
+    </g>
+    <g id="HATCH-8" data-name="HATCH">
+      <polygon class="cls-2" points="661.74 307.06 648.93 290.73 706.09 245.91 695.11 231.92 681.12 242.89 687.52 251.06 638.53 289.47 655.9 311.63 661.74 307.06"/>
+    </g>
+    <g id="HATCH-9" data-name="HATCH">
+      <polygon class="cls-2" points="534.43 402.17 540.26 397.59 522.88 375.43 473.9 413.85 467.5 405.69 453.5 416.66 464.48 430.66 521.63 385.84 534.43 402.17"/>
+    </g>
+    <g id="HATCH-10" data-name="HATCH">
+      <polygon class="cls-2" points="744.05 412.04 732.16 396.87 726.33 401.45 742.79 422.44 813.94 366.65 802.97 352.65 794.8 359.06 751.82 304.24 745.98 308.81 795.37 371.79 744.05 412.04"/>
+    </g>
+    <g id="HATCH-11" data-name="HATCH">
+      <rect class="cls-3" x="814.67" y="268.88" width="17.79" height="17.79" transform="translate(357.36 1011.31) rotate(-76.2)"/>
+    </g>
+    <g id="HATCH-12" data-name="HATCH">
+      <rect class="cls-3" x="949.36" y="60.96" width="20.75" height="20.75" transform="translate(661.53 986.36) rotate(-76.2)"/>
+    </g>
+    <g id="HATCH-13" data-name="HATCH">
+      <rect class="cls-3" x="1122.66" y="337.41" width="20.75" height="20.75" transform="translate(525.02 1365.16) rotate(-76.2)"/>
+    </g>
+    <g id="HATCH-14" data-name="HATCH">
+      <rect class="cls-3" x="729.99" y="3.18" width="20.75" height="20.75" transform="translate(550.6 729.31) rotate(-76.2)"/>
+    </g>
+    <g id="HATCH-15" data-name="HATCH">
+      <rect class="cls-3" x="9.48" y="401.55" width="23.72" height="23.72" transform="translate(-7.93 .49) rotate(-1.1)"/>
+    </g>
+    <g id="HATCH-16" data-name="HATCH">
+      <rect class="cls-3" x="236.14" y="859.75" width="23.72" height="23.72" transform="translate(-16.69 4.92) rotate(-1.1)"/>
+    </g>
+    <g id="HATCH-17" data-name="HATCH">
+      <rect class="cls-3" x="8.14" y="847.75" width="23.72" height="23.72" transform="translate(-16.5 .54) rotate(-1.1)"/>
+    </g>
+    <g id="HATCH-18" data-name="HATCH">
+      <rect class="cls-3" x="8.14" y="637.75" width="23.72" height="23.72" transform="translate(-12.47 .5) rotate(-1.1)"/>
+    </g>
+    <g id="HATCH-19" data-name="HATCH">
+      <rect class="cls-3" x="230.14" y="637.75" width="23.72" height="23.72" transform="translate(-12.43 4.77) rotate(-1.1)"/>
+    </g>
+    <g id="HATCH-20" data-name="HATCH">
+      <rect class="cls-3" x="458.14" y="847.75" width="23.72" height="23.72" transform="translate(-16.42 9.18) rotate(-1.1)"/>
+    </g>
+    <g id="HATCH-21" data-name="HATCH">
+      <rect class="cls-3" x="460.14" y="548.42" width="23.72" height="23.72" transform="translate(-10.67 9.16) rotate(-1.1)"/>
+    </g>
+    <g id="HATCH-22" data-name="HATCH">
+      <rect class="cls-3" x="225.48" y="401.55" width="23.72" height="23.72" transform="translate(-7.89 4.63) rotate(-1.1)"/>
+    </g>
+  </g>
+</svg>

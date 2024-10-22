@@ -6,15 +6,16 @@
       <dv-decoration-1 style="width:200px;height:50px;" />
     </div>
 
-    <div class="cc-details">
-      <div>设备总数</div>
+   <div class="cc-details">
+      <!-- <div>设备总数</div>
       <div class="card">2</div>
       <div class="card">1</div>
       <div class="card">3</div>
-      <div class="card">7</div>
+      <div class="card">7</div> -->
+      <person-location></person-location>
     </div>
 
-    <div class="cc-main-container">
+    <!-- <div class="cc-main-container">
       <div class="ccmc-left">
         <div class="station-info">
           收费站<span>1315</span>
@@ -36,17 +37,19 @@
       </div>
 
       <LabelTag :config="labelConfig" />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import LabelTag from './LabelTag'
+import PersonLocation from './PersonLocation.vue'
 
 export default {
   name: 'CenterCmp',
   components: {
-    LabelTag
+    LabelTag,
+    PersonLocation
   },
   data () {
     return {
@@ -98,15 +101,19 @@ export default {
     justify-content: space-between;
     align-items: center;
     font-size: 30px;
+    // margin-bottom: 40px;
   }
 
   .cc-details {
-    height: 120px;
+    height: 100%;
     display: flex;
     justify-content: center;
     font-size: 32px;
     align-items: center;
-
+    // border:1px #08e5ff;
+    // margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     .card {
       background-color: rgba(4,49,128,.6);
       color: #08e5ff;
