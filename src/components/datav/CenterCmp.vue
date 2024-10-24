@@ -8,7 +8,7 @@
           <el-option
             v-for="item in options"
             :key="item.value"
-            :label="item.label"
+            :label="item.areaName"
             :value="item.value"
           >
           </el-option>
@@ -42,11 +42,11 @@ export default {
       options: [
         {
           value: 'person-location',
-          label: '展厅'
+          areaName: '展厅'
         },
         {
           value: 'area-exhibition',
-          label: '客厅'
+          areaName: '客厅'
         }
       ],
       value: 'person-location',

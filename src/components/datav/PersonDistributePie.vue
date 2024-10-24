@@ -1,22 +1,24 @@
 <template>
   <div class="left-chart-1">
     <div class="lc1-header">人员分布</div>
-    <div class="lc1-details" ref="test">人员总数<span>{{personNum}}</span></div>
+    <div class="lc1-details" ref="test">
+      人员总数<span>{{ personNum }}</span>
+    </div>
     <dv-capsule-chart class="lc1-chart" :config="config" />
-    <dv-charts class="lc2-chart" id="box" ref="box" :option="option"/>
-    <dv-decoration-2 style="height:10px;" />
+    <dv-charts class="lc2-chart" id="box" ref="box" :option="option" />
+    <dv-decoration-2 style="height: 10px" />
   </div>
 </template>
 
 <script>
-import { getPersonDistributionDonut } from '@/api/screen.js'
+import WebSocketService from '@/utils/ws.js'
 import * as echarts from 'echarts'
 
 export default {
   name: 'LeftChart1',
   data () {
     return {
-      chart: ' ',
+      chart: null,
       personNum: 0,
       option: {
         series: [
@@ -42,36 +44,55 @@ export default {
     }
   },
   methods: {
-    setEchartsOptions () { // 生成ECharts
-      console.log(111)
+    setEchartsOptions () {
+      // 生成ECharts，使用 this.$refs 获取 DOM 元素
       this.chart = echarts.init(document.querySelector('#box'))
       this.chart.setOption(this.option)
     },
-    /** 查询部门列表 */
-    getPersonDistributionPie () {
-      this.loading = true
-      getPersonDistributionDonut().then(response => {
+    /** WebSocket获取人员列表 */
+    getPersonDistributionPieWs (wsService) {
+      // 等待 WebSocket 连接成功后发送消息
+      if (wsService.isConnected) {
+        wsService.sendMessage('给我人员列表数据')
+      } else {
+        console.warn('WebSocket 连接尚未建立')
+      }
+      // 监听 WebSocket 返回的消息
+      wsService.handleMessage = (data) => {
+        const response = JSON.parse(data)
+        console.log(response)
+        // 设置饼图的数据
         this.option.series[0].data = response.rows
-        // 初始化人数
-        this.personNum = 0
-        for (let index = 0; index < response.rows.length; index++) {
-          this.personNum += response.rows[index].value
-        }
+        console.log(this.option.series[0].data)
+
+        // 计算人员总数
+        this.personNum = response.rows.reduce((total, item) => total + item.value, 0)
+
+        // 更新 ECharts 图表
         this.setEchartsOptions()
-        this.loading = false
-      }).catch(() => {
-        this.loading = false
-      })
+      }
     }
   },
+
   mounted () {
-    // Automatically execute getPersonDistributionPie every 10 seconds
-    this.getPersonDistributionPie() // Call it once immediately on load
-    // debugger
-    this.intervalId = setInterval(this.getPersonDistributionPie, 3000) // 10000ms = 10 seconds
+    // WebSocket 请求
+    const wsService = new WebSocketService(
+      'ws://127.0.0.1:7070/personDistributionDonutCWs'
+    )
+    // 连接 WebSocket
+    wsService.connect(() => {
+    // WebSocket 连接成功后立即获取一次数据
+      this.getPersonDistributionPieWs(wsService)
+    })
+
+    // 每10秒更新一次数据
+    this.intervalId = setInterval(() => {
+      this.getPersonDistributionPieWs(wsService)
+    }, 1000)
   },
+
   beforeDestroy () {
-    // Clear the interval when the component is destroyed to avoid memory leaks
+    // 清除定时器
     if (this.intervalId) {
       clearInterval(this.intervalId)
     }
@@ -115,9 +136,5 @@ export default {
   .lc1-chart {
     flex: 1;
   }
-
-  // .lc2-chart {
-  //   height: 200px;
-  // }
 }
 </style>
