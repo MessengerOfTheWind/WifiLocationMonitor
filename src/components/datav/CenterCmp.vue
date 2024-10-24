@@ -1,86 +1,62 @@
 <template>
   <div class="center-cmp">
     <div class="cc-header">
-      <dv-decoration-1 style="width:200px;height:50px;" />
-      <div>人员定位信息</div>
-      <dv-decoration-1 style="width:200px;height:50px;" />
+      <dv-decoration-1 style="width: 200px; height: 50px" />
+      <!-- <div class="title">{{areaName}}分布</div> -->
+      <div class="dropdown">
+        <el-select v-model="value" @change="updateComponent" placeholder="选择区域">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </div>
+      <dv-decoration-1 style="width: 200px; height: 50px" />
     </div>
 
-   <div class="cc-details">
-      <!-- <div>设备总数</div>
-      <div class="card">2</div>
-      <div class="card">1</div>
-      <div class="card">3</div>
-      <div class="card">7</div> -->
-      <person-location></person-location>
+    <div class="cc-details">
+      <!-- <person-location></person-location> -->
+      <component :is="value" />
     </div>
-
-    <!-- <div class="cc-main-container">
-      <div class="ccmc-left">
-        <div class="station-info">
-          收费站<span>1315</span>
-        </div>
-        <div class="station-info">
-          监控中心<span>415</span>
-        </div>
-      </div>
-
-      <dv-active-ring-chart class="ccmc-middle" :config="config" />
-
-      <div class="ccmc-right">
-        <div class="station-info">
-          <span>90</span>道路外场
-        </div>
-        <div class="station-info">
-          <span>317</span>其他
-        </div>
-      </div>
-
-      <LabelTag :config="labelConfig" />
-    </div> -->
   </div>
 </template>
 
 <script>
 import LabelTag from './LabelTag'
-import PersonLocation from './PersonLocation.vue'
+import PersonLocation from '@/person_location_svg_components/PersonLocation.vue'
+import AreaExhibition from '@/person_location_svg_components/AreaExhibition.vue'
 
 export default {
   name: 'CenterCmp',
   components: {
     LabelTag,
-    PersonLocation
+    PersonLocation,
+    AreaExhibition
   },
   data () {
     return {
-      config: {
-        data: [
-          {
-            name: '收费站',
-            value: 1315
-          },
-          {
-            name: '监控中心',
-            value: 415
-          },
-          {
-            name: '道路外场',
-            value: 90
-          },
-          {
-            name: '其他',
-            value: 317
-          }
-        ],
-        color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-        lineWidth: 30,
-        radius: '55%',
-        activeRadius: '60%'
-      },
-
-      labelConfig: {
-        data: ['收费站', '监控中心', '道路外场', '其他']
-      }
+      areaName: '大厅',
+      options: [
+        {
+          value: 'person-location',
+          label: '展厅'
+        },
+        {
+          value: 'area-exhibition',
+          label: '客厅'
+        }
+      ],
+      value: 'person-location',
+      currentComponent: null
+    }
+  },
+  methods: {
+    updateComponent (value) {
+      // 根据选择的值更新当前组件
+      this.currentComponent = value === 'person-location' ? 'PersonLocation' : 'area-exhibition'
     }
   }
 }
@@ -96,12 +72,39 @@ export default {
   flex-direction: column;
 
   .cc-header {
+    // margin-left: 70px;
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 30px;
+    .title {
+      margin-left: 70px;
+    }
+    .dropdown {
+      .el-select {
+        margin-left: 50px;
+        width: 200px;
+        // height: 70px;
+        color: #fff;
+      }
+    }
     // margin-bottom: 40px;
+  }
+
+  .el-input__inner {
+     background-color: transparent;
+     border: 1px solid #26365c;
+     color: #fff;
+     font-size: 30px;
+     text-align: center;
+  }
+  .el-select .el-input__inner:focus {
+    border-color: #0e2d5a;
+  }
+
+  .transparent-select:focus {
+    outline: none; /* 去掉聚焦时的边框 */
   }
 
   .cc-details {
@@ -110,23 +113,10 @@ export default {
     justify-content: center;
     font-size: 32px;
     align-items: center;
-    // border:1px #08e5ff;
-    // margin-top: 40px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    .card {
-      background-color: rgba(4,49,128,.6);
-      color: #08e5ff;
-      height: 70px;
-      width: 70px;
-      font-size: 45px;
-      font-weight: bold;
-      line-height: 70px;
-      text-align: center;
-      margin: 10px;
+    .choose-area {
+      // text-align: left;
     }
   }
-
   .cc-main-container {
     position: relative;
     flex: 1;
@@ -141,7 +131,8 @@ export default {
       }
     }
 
-    .ccmc-left, .ccmc-right {
+    .ccmc-left,
+    .ccmc-right {
       width: 25%;
       display: flex;
       flex-direction: column;
