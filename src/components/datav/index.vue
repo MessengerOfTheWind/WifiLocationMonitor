@@ -66,14 +66,12 @@ import PersonDistributeExcel from './PersonDistributeExcel.vue'
 import BottomCharts from './BottomCharts'
 import PersonDensity from './PersonDensity.vue'
 import TopRightCmp from './TopRightCmp.vue'
-
-// import LeftChart1_copy from './LeftChart1_copy.vue'
+import { store } from '@/utils/store.js'
+import WebSocketService from '@/utils/ws.js'
 
 export default {
   name: 'DataView',
   components: {
-    // LeftChart2,
-    // LeftChart3,
     CenterCmp,
     PersonDistributePie,
     PersonDistributeExcel,
@@ -83,6 +81,51 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    startDataFetchInterval (wsService) {
+      this.intervalId = setInterval(() => {
+        this.getPersonDistributionPieWs(wsService)
+      }, 1000)
+    },
+    reqDataConvertThisData (data) {
+      // 确保 data 是数组类型
+      if (!Array.isArray(data)) {
+        console.error('Expected data to be an array:', data)
+        return
+      }
+      console.log('1')
+      // 更新 Vuex 中的数据
+      store.PersonData = data
+      // console.log(this.$store.state.personData)
+      console.log(store.PersonData)
+    },
+    getPersonDistributionPieWs (wsService) {
+      if (wsService.isConnected) {
+        wsService.sendMessage('给我人员列表数据')
+      } else {
+        console.warn('WebSocket 连接尚未建立')
+      }
+      // ...
+      wsService.handleMessage = (data) => {
+        // console.log(data);
+        const response = JSON.parse(data)
+        // console.log(response)
+        this.reqDataConvertThisData(response.rows)
+      }
+    }
+  },
+  mounted () {
+    // WebSocket 请求
+    const wsService = new WebSocketService(
+      'ws://127.0.0.1:7070/personDistributionDonutCWs'
+    )
+    // 连接 WebSocket
+    wsService.connect(() => {
+      // WebSocket 连接成功后立即获取一次数据
+      this.getPersonDistributionPieWs(wsService)
+      this.startDataFetchInterval(wsService)
+    })
   }
 }
 </script>

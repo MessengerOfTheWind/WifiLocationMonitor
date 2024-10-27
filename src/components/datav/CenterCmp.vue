@@ -18,7 +18,6 @@
     </div>
 
     <div class="cc-details">
-      <!-- <person-location></person-location> -->
       <component :is="value" />
     </div>
   </div>
@@ -58,6 +57,9 @@ export default {
       // 根据选择的值更新当前组件
       this.currentComponent = value === 'person-location' ? 'PersonLocation' : 'area-exhibition'
     }
+  },
+  mounted () {
+    console.log(22)
   }
 }
 </script>

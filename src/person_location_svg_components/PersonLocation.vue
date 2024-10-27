@@ -19,22 +19,53 @@
 </template>
 
 <script>
+import { store } from '@/utils/store.js'
 export default {
   data () {
     return {
+      // 初始数据
+      svgWidth: 0,
+      svgHeight: 0,
+      realWidth: 43.168, // 实际宽度 (米)
+      realHeight: 31.247, // 实际高度 (米
       isDragging: false,
       lastX: 0,
       lastY: 0,
       rotationX: 36.5, // 初始X旋转角度
       rotationY: -27, // 初始Y旋转角度
-      positions: [
-        { x: 0, y: 0 },
-        { x: 300, y: 500 },
-        { x: 600, y: 500 }
-      ]
+      positions: []
     }
   },
   methods: {
+    // 获取SVG的像素大小
+    setSvgDimensions () {
+      const svgElement = this.$el.querySelector('.background-svg')
+      if (svgElement) {
+        this.svgWidth = svgElement.clientWidth
+        this.svgHeight = svgElement.clientHeight
+      }
+    },
+    // 坐标转换方法
+    convertX (x) {
+      return (x / this.realWidth) * this.svgWidth
+    },
+    convertY (y) {
+      return (y / this.realHeight) * this.svgHeight
+    },
+    // 其他方法保持不变
+    // 定义一个函数，将 userXyz 转换为 positions 格式
+    parsePositions (rows) {
+      return rows.map(row => {
+        const [x, y] = row.userXyz.split(',').map(coord => parseFloat(coord.trim()))
+        return { x, y, userName: row.userName }
+      })
+    },
+    updatePersonLocation (data) {
+      const filteredRows = data.filter(row => row.areaName === '大区域测试')
+      const positionList = this.parsePositions(filteredRows)
+      // console.log(positionList)
+      this.positions = positionList
+    },
     startRotate (event) {
       this.isDragging = true
       this.lastX = event.clientX
@@ -54,12 +85,25 @@ export default {
         this.lastX = event.clientX
         this.lastY = event.clientY
       }
+    }
+  },
+  mounted () {
+    // 设置SVG像素大小
+    this.setSvgDimensions()
+    this.intervalId = setInterval(() => {
+      if (store.PersonData) {
+        this.updatePersonLocation(store.PersonData)
+      }
+    }, 1000)
+  },
+  watch: {
+    svgWidth () {
+      // 确保在SVG大小变化时更新位置
+      this.updatePersonLocation(store.PersonData)
     },
-    convertX (x) {
-      return x // 根据实际情况调整
-    },
-    convertY (y) {
-      return y // 根据实际情况调整
+    svgHeight () {
+      // 同上
+      this.updatePersonLocation(store.PersonData)
     }
   }
 }
