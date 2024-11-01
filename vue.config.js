@@ -9,7 +9,7 @@ function resolve (dir) {
 
 const name = process.env.VUE_APP_TITLE || '室内定位大屏' // 网页标题
 
-const port = process.env.port || process.env.npm_config_port || 82 // 端口
+const port = process.env.port || process.env.npm_config_port || 8087 // 端口
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
@@ -22,7 +22,7 @@ module.exports = {
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
-        target: `http://localhost:7070`,
+        target: `http://backend:7070`,
         changeOrigin: true,
         pathRewrite: {
           ['^' + process.env.VUE_APP_BASE_API]: ''

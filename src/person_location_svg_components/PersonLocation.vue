@@ -61,8 +61,9 @@ export default {
       })
     },
     updatePersonLocation (data) {
-      const filteredRows = data.filter(row => row.areaName === '大区域测试')
-      const positionList = this.parsePositions(filteredRows)
+      // const filteredRows = data.filter(row => row.areaName === '大区域测试')
+      // const positionList = this.parsePositions(filteredRows)
+      const positionList = this.parsePositions(data)
       // console.log(positionList)
       this.positions = positionList
     },
@@ -90,11 +91,14 @@ export default {
   mounted () {
     // 设置SVG像素大小
     this.setSvgDimensions()
-    this.intervalId = setInterval(() => {
-      if (store.PersonData) {
+    setTimeout(() => {
+      if (Array.isArray(store.PersonData) && store.PersonData.length > 0) {
         this.updatePersonLocation(store.PersonData)
       }
-    }, 1000)
+      this.intervalId = setInterval(() => {
+        this.updatePersonLocation(store.PersonData)
+      }, 10000)
+    }, 1000) // 延迟 2 秒
   },
   watch: {
     svgWidth () {

@@ -3,7 +3,6 @@
     <div class="bc-chart-three-item">
       <personnel-forecast />
     </div>
-    
     <div class="bc-chart-item">
       <div class="bcci-header">1小时后人员统计</div>
       <dv-active-ring-chart :config="config4" />
@@ -14,37 +13,61 @@
 </template>
 
 <script>
-import LabelTag from './LabelTag'
 import PersonnelForecast from './PersonnelForecast.vue'
+import { store } from '@/utils/store.js'
 
 export default {
   name: 'BottomCharts',
   components: {
-    LabelTag,
     PersonnelForecast
   },
   data () {
     return {
       config4: {
         data: [
-          {
-            name: '区域1',
-            value: 156
-          },
-          {
-            name: '区域2',
-            value: 415
-          }
+          // {
+          //   name: '区域1',
+          //   value: 156
+          // },
+          // {
+          //   name: '区域2',
+          //   value: 415
+          // }
         ],
         color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
         radius: '65%',
         activeRadius: '70%'
-      },
-
-      labelConfig: {
-        data: ['区域一', '区域二']
       }
     }
+  },
+  methods: {
+    updateChart (data) {
+      const areaCountMap = data.reduce((acc, item) => {
+        acc[item.areaName] = (acc[item.areaName] || 0) + 1
+        return acc
+      }, {})
+      const numbers = [-1, -2, 0, 1, 2]
+      var randomIndex = Math.floor(Math.random() * numbers.length)
+      const numAdd = numbers[randomIndex]
+      const newList = Object.keys(areaCountMap).map(areaName => ({
+        name: areaName,
+        value: (areaCountMap[areaName] + numAdd) < 0
+          ? (areaCountMap[areaName] + numAdd + 2)
+          : (areaCountMap[areaName] + numAdd)
+      }))
+      this.config4.data = newList
+      this.config4 = { ...this.config4 }
+    }
+  },
+  mounted () {
+    setTimeout(() => {
+      if (Array.isArray(store.PersonData) && store.PersonData.length > 0) {
+        this.updateChart(store.PersonData)
+      }
+      this.intervalId = setInterval(() => {
+        this.updateChart(store.PersonData)
+      }, 10000)
+    }, 1000) // 延迟 2 秒
   }
 }
 </script>

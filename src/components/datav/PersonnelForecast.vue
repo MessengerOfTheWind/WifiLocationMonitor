@@ -4,55 +4,89 @@
 
 <script>
 import * as echarts from 'echarts'
+import { store } from '@/utils/store.js'
 
 export default {
   data () {
     return {
       chart: null,
-      data: [],
-      data2: [],
-      now: new Date(),
-      now2: new Date(),
+      groupedData: {},
+      initData: [],
+      areaData: [],
+      areaCountMap: {},
+      nowtime: {},
       oneDay: 3600 * 1000,
       oneHour: 3600 * 1000,
-      value: 100,
-      value2: 60,
-      numbers: [-10, -5, 0, 5, 10],
-      numbers2: [-8, -4, 0, 4, 8]
+      numbers: [-1, -2, 0, 1, 2]
     }
   },
   methods: {
-    randomData () {
-      this.now = new Date(+this.now + this.oneHour)
+    randomData (areaName) {
+      this.nowtime[areaName] = new Date(+this.nowtime[areaName] + this.oneHour)
       var randomIndex = Math.floor(Math.random() * this.numbers.length)
-      this.value = this.value + this.numbers[randomIndex]
-      return {
-        name: this.now.toString(),
-        value: [
-          [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/') + ' ' + this.now.getHours() + ':00',
-          Math.round(this.value)
-        ]
+      this.areaCountMap[areaName] = this.areaCountMap[areaName] + this.numbers[randomIndex]
+      if (this.areaCountMap[areaName] < 0) {
+        this.areaCountMap[areaName] += 2
       }
-    },
-    randomData2 () { // 新的随机数据生成方法
-      this.now2 = new Date(+this.now2 + this.oneHour)
-      var randomIndex = Math.floor(Math.random() * this.numbers2.length)
-      this.value2 = this.value2 + this.numbers2[randomIndex]
+      const now = this.nowtime[areaName]
       return {
-        name: this.now.toString(),
+        name: this.nowtime[areaName].toString(),
         value: [
-          [this.now2.getFullYear(), this.now2.getMonth() + 1, this.now2.getDate()].join('/') + ' ' + this.now2.getHours() + ':00',
-          Math.round(this.value2)
+          [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/') + ' ' + now.getHours() + ':00',
+          Math.round(this.areaCountMap[areaName])
         ]
       }
     },
     initChart () {
+      // 把得到的数据变成name和value的list
+      this.areaCountMap = this.initData.reduce((acc, item) => {
+        acc[item.areaName] = (acc[item.areaName] || 0) + 1
+        return acc
+      }, {})
+
+      const newList = Object.keys(this.areaCountMap).map(areaName => ({
+        areaName: areaName,
+        value: this.areaCountMap[areaName]
+      }))
+      this.areaData = newList
+      // 初始化每个区域的预测人数
+      const tNow = new Date()
+      this.areaData.forEach(item => {
+        const areaName = item.areaName
+        if (!this.groupedData[areaName]) {
+          this.groupedData[areaName] = []
+        }
+        // 初始化时间
+        this.nowtime[areaName] = new Date(tNow)
+        // console.log(this.nowtime[areaName])
+      })
       this.chart = echarts.init(this.$refs.chart)
       // Generate initial data
       for (let i = 0; i < 10; i++) {
-        this.data.push(this.randomData())
-        this.data2.push(this.randomData2())
+        this.areaData.forEach(item => {
+          const areaName = item.areaName
+          this.groupedData[areaName].push(this.randomData(areaName))
+        })
       }
+      // 定义数据
+      const colorPalette = [
+        '#ff5733', '#33ff57', '#3357ff', '#ff33aa', '#aaff33',
+        '#ff9933', '#33ccff', '#cc33ff', '#ffcc33', '#33ffaa',
+        '#ff3333', '#33aaff', '#aa33ff', '#ff6633', '#33ffcc'
+      ]
+      const tSeries = Object.keys(this.groupedData).map((areaName, index) => ({
+        name: areaName,
+        type: 'line',
+        showSymbol: true,
+        data: this.groupedData[areaName],
+        lineStyle: {
+          color: colorPalette[index % colorPalette.length] // Cycle through colors
+        },
+        textStyle: {
+          color: '#fff'
+        }
+      }))
+
       const option = {
         title: {
           text: '人员分布预测',
@@ -97,62 +131,45 @@ export default {
             fontSize: 14 // 横坐标标签字体大小
           }
         },
-        series: [
-          {
-            name: '区域1',
-            type: 'line',
-            showSymbol: true,
-            data: this.data,
-            textStyle: {
-              color: '#fff'
-            }
-          },
-          {
-            name: '区域2', // 新的折线名称
-            type: 'line',
-            showSymbol: true,
-            data: this.data2, // 新折线的数据
-            textStyle: {
-              color: '#fff'
-            }
-          }
-        ]
+        series: tSeries
       }
       this.chart.setOption(option)
-
       // Update chart data at intervals
       this.interval1 = setInterval(() => {
         for (let i = 0; i < 1; i++) {
-          this.data.shift()
-          this.data.push(this.randomData())
-          this.data2.shift()
-          this.data2.push(this.randomData2())
+          this.areaData.forEach(item => {
+            const areaName = item.areaName
+            this.groupedData[areaName].shift()
+            this.groupedData[areaName].push(this.randomData(areaName))
+          })
         }
+        const newTSeries = Object.keys(this.groupedData).map((areaName, index) => ({
+          data: this.groupedData[areaName]
+        }))
         // console.log(this.data2)
         this.chart.setOption({
-          series: [
-            {
-              data: this.data
-            },
-            {
-              data: this.data2 // 也更新新折线的数据
-            }
-          ]
+          series: newTSeries
         })
       }, 5000)
-      this.interval2 = setInterval(() => {
-        this.data = []
-        this.data2 = []
-        this.now = this.now2 = new Date()
-        for (let i = 0; i < 10; i++) {
-          this.data.push(this.randomData())
-          this.data2.push(this.randomData2())
-        }
-      }, 20000)
     }
   },
   mounted () {
-    this.initChart()
+    // this.initializeChart()
+    setTimeout(() => {
+      if (Array.isArray(store.PersonData) && store.PersonData.length > 0) {
+        this.initData = store.PersonData
+        this.initChart()
+      }
+      this.intervalId = setInterval(() => {
+        this.initData = store.PersonData
+        this.groupedData = {}
+        this.areaData = []
+        this.areaCountMap = {}
+        this.nowtime = {}
+        // this.chart = null
+        this.initChart()
+      }, 15000)
+    }, 1000) // 延迟 2 秒
   }
 }
 </script>

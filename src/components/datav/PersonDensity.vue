@@ -6,70 +6,43 @@
 </template>
 
 <script>
+import { store } from '@/utils/store.js'
 
 export default {
   name: 'RankingBoard',
   data () {
     return {
       config: {
-        data: [
-          {
-            name: '区域1',
-            value: 55
-          },
-          {
-            name: '区域2',
-            value: 120
-          },
-          {
-            name: '区域3',
-            value: 78
-          },
-          {
-            name: '区域4',
-            value: 66
-          },
-          {
-            name: '区域5',
-            value: 80
-          },
-          {
-            name: '区域6',
-            value: 90
-          },
-          {
-            name: '区域7',
-            value: 150
-          }
-        ],
+        data: [],
         rowNum: 4
       }
     }
   },
   mounted () {
-    this.run() // 启动数据更新
-    setInterval(this.run, 3000) // 每3秒更新一次数据
+    // this.initializeChart()
+    setTimeout(() => {
+      if (Array.isArray(store.PersonData) && store.PersonData.length > 0) {
+        this.updateChart(store.PersonData)
+      }
+      this.intervalId = setInterval(() => {
+        this.updateChart(store.PersonData)
+      }, 10000)
+    }, 1000) // 延迟 2 秒
   },
   methods: {
-    run () {
+    updateChart (data) {
       // 更新数据
-      for (let i = 0; i < this.data.length; ++i) {
-        if (Math.random() > 0.9) {
-          this.data[i] += Math.round(Math.random() * 2000)
-        } else {
-          this.data[i] += Math.round(Math.random() * 200)
-        }
-      }
-
-      // 更新图表
-      this.myChart.setOption({
-        series: [
-          {
-            type: 'bar',
-            data: this.data
-          }
-        ]
-      })
+      const areaCountMap = data.reduce((acc, item) => {
+        acc[item.areaName] = (acc[item.areaName] || 0) + 1
+        return acc
+      }, {})
+      const newList = Object.keys(areaCountMap).map(areaName => ({
+        name: areaName,
+        value: areaCountMap[areaName]
+      }))
+      console.log(newList)
+      this.config.data = newList
+      this.config = { ...this.config }
     }
   }
 }

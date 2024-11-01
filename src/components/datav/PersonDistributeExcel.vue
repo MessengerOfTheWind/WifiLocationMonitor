@@ -1,28 +1,20 @@
 <template>
   <div id="scroll-board">
     <!-- <div class="lc1-details">人员总数<span>5000</span></div> -->
-    <dv-scroll-board :config="config" />
+    <dv-scroll-board id="box" :config="config" />
   </div>
 </template>
 
 <script>
+import { store } from '@/utils/store.js'
+
 export default {
   name: 'ScrollBoard',
   data () {
     return {
       config: {
         header: ['姓名', '区域', '位置'],
-        data: [
-          ['黄凯', '区域1', '5'],
-          ['黄凯', '区域1', '13'],
-          ['黄凯', '区域1', '6'],
-          ['黄凯', '区域1', '2'],
-          ['黄凯', '区域1', '1'],
-          ['黄凯', '区域1', '3'],
-          ['黄凯', '区域1', '4'],
-          ['黄凯', '区域1', '2'],
-          ['黄凯', '区域1', '5']
-        ],
+        data: [],
         index: true,
         columnWidth: [40, 80, 100],
         align: ['center'],
@@ -33,6 +25,35 @@ export default {
         evenRowBGC: 'rgba(10, 29, 50, 0.8)'
       }
     }
+  },
+  methods: {
+    updateChart (data) {
+    // 清空原有数据
+      const result = []
+      // 遍历每个用户数据
+      data.forEach(item => {
+        const userName = item.userName
+        const areaName = item.areaName
+        const coordinates = item.userXyz.split(',')
+        const xyValue = `${coordinates[0].trim()}, ${coordinates[1].trim()}`
+        // 构建结果数组
+        result.push([userName, areaName, xyValue])
+      })
+      this.config.data = result
+      this.config = { ...this.config }
+    // 在这里可以进一步处理 result，比如更新图表数据
+    }
+  },
+  mounted () {
+    // this.initializeChart()
+    setTimeout(() => {
+      if (Array.isArray(store.PersonData) && store.PersonData.length > 0) {
+        this.updateChart(store.PersonData)
+      }
+      this.intervalId = setInterval(() => {
+        this.updateChart(store.PersonData)
+      }, 10000)
+    }, 1000) // 延迟 2 秒
   }
 }
 </script>

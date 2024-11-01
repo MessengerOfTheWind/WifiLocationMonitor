@@ -4,8 +4,8 @@
     <div class="lc1-details">
       人员总数<span>{{ personNum }}</span>
     </div>
-    <dv-capsule-chart class="lc1-chart" :config="config" />
-    <dv-charts class="lc2-chart" id="box" ref="box" :option="option" />
+    <!-- <dv-capsule-chart class="lc1-chart" :config="config" /> -->
+    <dv-charts class="lc2-chart" id="box" :option="option" />
     <dv-decoration-2 style="height: 10px" />
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
           {
             type: 'pie',
             data: [],
-            radius: ['60%', '90%'],
+            radius: ['45%', '65%'],
+            padding: [5, 10], // 增加内边距
             label: {
               show: true,
               formatter: '{b}: {c} ({d}%)'
@@ -57,10 +58,15 @@ export default {
     }
   },
   mounted () {
-    this.initializeChart()
-    this.intervalId = setInterval(() => {
-      this.updateChart(store.PersonData)
-    }, 1000)
+    setTimeout(() => {
+      this.initializeChart()
+      if (Array.isArray(store.PersonData) && store.PersonData.length > 0) {
+        this.updateChart(store.PersonData)
+      }
+      this.intervalId = setInterval(() => {
+        this.updateChart(store.PersonData)
+      }, 10000)
+    }, 1000) // 延迟 2 秒
   },
   beforeDestroy () {
     if (this.chart) this.chart.dispose()

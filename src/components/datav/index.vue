@@ -94,11 +94,11 @@ export default {
         console.error('Expected data to be an array:', data)
         return
       }
-      console.log('1')
+      // console.log('1')
       // 更新 Vuex 中的数据
       store.PersonData = data
       // console.log(this.$store.state.personData)
-      console.log(store.PersonData)
+      // console.log(store.PersonData)
     },
     getPersonDistributionPieWs (wsService) {
       if (wsService.isConnected) {
@@ -118,7 +118,7 @@ export default {
   mounted () {
     // WebSocket 请求
     const wsService = new WebSocketService(
-      'ws://127.0.0.1:7070/personDistributionDonutCWs'
+      'ws://120.27.111.189:7070/personDistributionDonutCWs'
     )
     // 连接 WebSocket
     wsService.connect(() => {
