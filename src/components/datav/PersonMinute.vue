@@ -1,27 +1,18 @@
 <template>
-  <div class="bottom-charts">
-    <div class="bc-chart-three-item">
-      <!-- <personnel-forecast /> -->
+<div class="bottom-charts">
+    <div class="bc-chart-item1">
+      <div class="bcci-header">1小时后人员统计</div>
+        <dv-active-ring-chart :config="config4" />
+        <Label-Tag :config="labelConfig" />
     </div>
-    <div class="bc-chart-item">
-      <!-- <div class="bcci-header">1小时后人员统计</div>
-      <dv-active-ring-chart :config="config4" />
-      <Label-Tag :config="labelConfig" /> -->
-      <personnel-forecast />
-    </div>
-
-  </div>
+</div>
 </template>
 
 <script>
-import PersonnelForecast from './PersonnelForecast.vue'
 import { store } from '@/utils/store.js'
 
 export default {
-  name: 'BottomCharts',
-  components: {
-    PersonnelForecast
-  },
+  name: 'PersonMinute',
   data () {
     return {
       config4: {
@@ -80,15 +71,8 @@ export default {
   display: flex;
   position: relative;
 
-  .bc-chart-three-item{
-    width: 62%;
-    height: 100%;
-    padding-top: 20px;
-    box-sizing: border-box;
-  }
-
-  .bc-chart-item {
-    width: 38%;
+  .bc-chart-item1 {
+    width: 100%;
     height: 100%;
     padding-top: 20px;
     box-sizing: border-box;

@@ -32,13 +32,14 @@
 
                 <!-- <Right-Chart-1 /> -->
                 <person-density />
-
+                
               </dv-border-box-3>
 
               <dv-border-box-4 class="rmctc-chart-2" :reverse="true">
 
                 <!-- <Right-Chart-2 /> -->
-                <top-right-cmp />
+                <!-- <top-right-cmp /> -->
+                <person-minute />
               </dv-border-box-4>
             </div>
           </div>
@@ -68,6 +69,8 @@ import PersonDensity from './PersonDensity.vue'
 import TopRightCmp from './TopRightCmp.vue'
 import { store } from '@/utils/store.js'
 import WebSocketService from '@/utils/ws.js'
+import PersonMinuteVue from './PersonMinute.vue'
+import PersonMinute from './PersonMinute.vue'
 
 export default {
   name: 'DataView',
@@ -77,11 +80,13 @@ export default {
     PersonDistributeExcel,
     BottomCharts,
     PersonDensity,
-    TopRightCmp
+    TopRightCmp,
+    PersonMinute
   },
-  data () {
-    return {}
-  },
+  // data () {
+  // ,
+  //   PersonMinute  return {}
+  // },
   methods: {
     startDataFetchInterval (wsService) {
       this.intervalId = setInterval(() => {
@@ -138,7 +143,7 @@ export default {
   color: #fff;
 
   #dv-full-screen-container {
-    background-image: url('./img/bg.png');
+    background-image: url('./img/bg15.jpg');
     background-size: 100% 100%;
     box-shadow: 0 0 3px blue;
     display: flex;
