@@ -72,6 +72,8 @@ export default {
   padding: 0px;
   display: flex;
   flex-direction: column;
+  max-width: 100%; /* 防止超出父容器的宽度 */
+  max-height: 100%; /* 防止超出父容器的高度 */
 
   .cc-header {
     // margin-left: 70px;
@@ -110,7 +112,7 @@ export default {
   }
 
   .cc-details {
-    height: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;
     font-size: 32px;

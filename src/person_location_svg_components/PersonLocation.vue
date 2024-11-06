@@ -117,10 +117,16 @@ export default {
 .container {
   perspective: 1000px; /* 设置透视距离 */
   cursor: grab; /* 鼠标变为手型 */
+  display: flex; /* 启用 flex 布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100vh; /* 让容器占满视窗高度 */
 }
 
 .positioning {
   display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
   width: 690px;
   height: 500px; /* 设置固定高度 */
   position: relative;
@@ -128,9 +134,9 @@ export default {
 }
 
 .background-svg {
-  width: 100%;
-  height: 100%; /* 确保自适应 */
-  display: block; /* 确保没有多余的空白 */
+  width: 80%;
+  height: 80%;
+  display: block;
   .img {
     height: 100%;
     width: auto;
