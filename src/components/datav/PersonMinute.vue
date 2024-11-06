@@ -1,7 +1,7 @@
 <template>
 <div class="bottom-charts">
     <div class="bc-chart-item1">
-      <div class="bcci-header">1小时后人员统计</div>
+      <div class="bcci-header">2分钟后人员统计</div>
         <dv-active-ring-chart :config="config4" />
         <Label-Tag :config="labelConfig" />
     </div>
