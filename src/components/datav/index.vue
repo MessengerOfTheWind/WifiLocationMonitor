@@ -32,7 +32,6 @@
 
                 <!-- <Right-Chart-1 /> -->
                 <person-density />
-                
               </dv-border-box-3>
 
               <dv-border-box-4 class="rmctc-chart-2" :reverse="true">
@@ -69,7 +68,6 @@ import PersonDensity from './PersonDensity.vue'
 import TopRightCmp from './TopRightCmp.vue'
 import { store } from '@/utils/store.js'
 import WebSocketService from '@/utils/ws.js'
-import PersonMinuteVue from './PersonMinute.vue'
 import PersonMinute from './PersonMinute.vue'
 
 export default {
