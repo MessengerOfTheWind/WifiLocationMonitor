@@ -14,7 +14,13 @@ export default {
     return {
       config: {
         data: [],
-        rowNum: 4
+        rowNum: 6,
+        style: {
+          fontSize: '30px', // 设置areaName的字体大小为30px，可以根据需要调整
+          color: 'white', // 设置字体颜色为白色
+          fontWeight: 'bold', // 设置字体加粗
+          fontFamily: 'Avenir' // 设置字体类型
+        }
       }
     }
   },
@@ -70,6 +76,13 @@ export default {
 
   .dv-scroll-ranking-board {
     flex: 1;
+    .row-item {
+  font-size: 10px; /* 调整为您希望的字体大小 */
+  color: white; /* 字体颜色 */
+  // font-weight: bold; /* 加粗 */
+  font-family: Avenir, Arial, sans-serif; /* 字体类型 */
+}
   }
+
 }
 </style>

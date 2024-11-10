@@ -134,42 +134,6 @@ export default {
         font-size: 20px !important;
       }
     }
-
-    .ccmc-left,
-    .ccmc-right {
-      width: 25%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 24px;
-
-      span {
-        font-size: 40px;
-        font-weight: bold;
-      }
-
-      .station-info {
-        height: 80px;
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    .ccmc-left {
-      align-items: flex-end;
-
-      span {
-        margin-left: 20px;
-      }
-    }
-
-    .ccmc-right {
-      align-items: flex-start;
-
-      span {
-        margin-right: 20px;
-      }
-    }
   }
 
   .label-tag {

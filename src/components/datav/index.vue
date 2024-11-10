@@ -3,7 +3,7 @@
     <dv-full-screen-container>
       <div class="main-header">
         <div class="mh-left"></div>
-        <div class="mh-middle">室内人员定位分布</div>
+        <div class="mh-middle">智慧人员分布</div>
         <div class="mh-right">
           <dv-border-box-2
             style="width: 120px; height: 50px; line-height: 50px; text-align:center;margin-left:200px;"
@@ -34,12 +34,12 @@
                 <person-density />
               </dv-border-box-3>
 
-              <dv-border-box-4 class="rmctc-chart-2" :reverse="true">
+              <!-- <dv-border-box-4 class="rmctc-chart-2" :reverse="true"> -->
 
                 <!-- <Right-Chart-2 /> -->
                 <!-- <top-right-cmp /> -->
-                <person-minute />
-              </dv-border-box-4>
+                <!-- <person-minute /> -->
+              <!-- </dv-border-box-4> -->
             </div>
           </div>
 
@@ -216,7 +216,7 @@ export default {
   }
 
   .rmctc-chart-1, .rmctc-chart-2 {
-    height: 50%;
+    height: 100%;
   }
 
 }

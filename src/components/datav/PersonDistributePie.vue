@@ -29,7 +29,11 @@ export default {
             padding: [5, 10], // 增加内边距
             label: {
               show: true,
-              formatter: '{b}: {c} ({d}%)'
+              formatter: '{b}',
+              fontFamily: 'Avenir', // 设置字体类型，例如 Arial
+              fontSize: 13, // 设置字体大小，例如 14
+              color: 'white',
+              fontWeight: 'bold'
             }
           }
         ],
@@ -86,7 +90,7 @@ export default {
     margin-bottom: 20px;
   }
   .lc1-details {
-    font-size: 16px;
+    font-size: 20px;
     text-indent: 20px;
     span {
       color: #096dd9;

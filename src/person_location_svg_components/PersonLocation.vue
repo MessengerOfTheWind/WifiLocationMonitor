@@ -12,7 +12,7 @@
                 :cx="convertX(person.x)"
                 :cy="convertY(person.y)"
                 r="5"
-                fill="red" />
+                :fill="getColor(index)" />
       </svg>
     </div>
   </div>
@@ -33,7 +33,8 @@ export default {
       lastY: 0,
       rotationX: 36.5, // 初始X旋转角度
       rotationY: -27, // 初始Y旋转角度
-      positions: []
+      positions: [],
+      colors: ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'cyan', 'magenta'] // 颜色数组
     }
   },
   methods: {
@@ -44,6 +45,12 @@ export default {
         this.svgWidth = svgElement.clientWidth
         this.svgHeight = svgElement.clientHeight
       }
+    },
+    // 获取颜色
+    getColor (index) {
+      const color = this.colors[index % this.colors.length]
+      console.log('Color for index', index, 'is', color)
+      return color
     },
     // 坐标转换方法
     convertX (x) {
@@ -134,8 +141,8 @@ export default {
 }
 
 .background-svg {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   display: block;
   .img {
     height: 100%;
