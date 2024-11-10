@@ -107,15 +107,15 @@ export default {
           width: '80%' // 限制图例区域的宽度，超出时换行显示
         },
         tooltip: {
-          trigger: 'axis',
-          formatter: (params) => {
-            params = params[0]
-            const date = new Date(params.name)
-            return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} : ${params.value[1]}`
-          },
-          axisPointer: {
-            animation: false
-          }
+          trigger: 'axis'
+          // formatter: (params) => {
+          //   params = params[0]
+          //   const date = new Date(params.name)
+          //   return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} : ${params.value[1]}`
+          // },
+          // axisPointer: {
+          //   animation: false
+          // }
         },
         xAxis: {
           type: 'time',
